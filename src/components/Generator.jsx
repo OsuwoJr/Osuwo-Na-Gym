@@ -5,7 +5,7 @@ const Generator = () => {
   return (
     <div className='min-h-screen'>
      <SectionWrapper>
-        
+       Generator
      </SectionWrapper>
     </div>
   )
