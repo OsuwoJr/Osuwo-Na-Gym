@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import SectionWrapper from './SectionWrapper'
 import { SCHEMES, WORKOUTS } from '../utils/swoldier'
 function Header (props){
@@ -15,7 +15,14 @@ function Header (props){
 }
 
 const Generator = () => {
-  let showModal= false
+  const[showModal, setShowModal] = useState(false)
+  const[poison,setPoison] = useState('individual')
+  const[muscles,setMuscles] = useState([])
+  const [goals,setGoals] = useState('strength_power')
+  //let showModal= false
+  function toggleModal(){
+    setShowModal(!showModal)
+  }
   return (
     <div className='min-h-screen'>
      <SectionWrapper header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
@@ -30,14 +37,24 @@ const Generator = () => {
        } )}
        </div>
        <Header index={'02'} title={'Lock On Targets'} description={"Select the muscles judged for annihilation."}/>
-       <div className='bg-slate-950 p-3 border border-solid border-blue-400 rounded-lg'>
-         <button className='relative flex items-center justify-center'>
+       <div className='bg-slate-950  border border-solid border-blue-400 rounded-lg flex flex-col'>
+         <button onClick={toggleModal} className='relative p-3 flex items-center justify-center'>
           <p>Select muscle groups</p>
           <i className="fa-regular right-3 top-1/2 -translate-y-1/2 fa-circle-down"></i>
          </button>
          {
           showModal && (<div>Modal</div>)
          }
+       </div>
+       <Header index={'01'} title={'Pick your poison'} description={"Select the workout you wish to endure"}/>
+       <div className='grid grid-cols-3 gap-4'>
+         {Object.keys(SCHEMES).map( (scheme, schemeIndex)=>{
+          return (
+            <button className='bg-slate-950 border bprder-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg' key={schemeIndex}>
+              <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
+            </button>
+          )
+         } )}
        </div>
      </SectionWrapper>
     </div>
