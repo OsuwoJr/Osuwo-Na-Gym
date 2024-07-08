@@ -15,6 +15,7 @@ function Header (props){
 }
 
 const Generator = () => {
+  let showModal= false
   return (
     <div className='min-h-screen'>
      <SectionWrapper header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
@@ -22,11 +23,21 @@ const Generator = () => {
        <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
        {Object.keys(WORKOUTS).map( (type, typeIndex)=>{
         return (
-          <button className='bg-slate-950 border bprder-blue-400 py-3 rounded-lg' key={typeIndex}>
-            <p>{type}</p>
+          <button className='bg-slate-950 border bprder-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg' key={typeIndex}>
+            <p className='capitalize'>{type.replaceAll('_', " ")}</p>
           </button>
         )
        } )}
+       </div>
+       <Header index={'02'} title={'Lock On Targets'} description={"Select the muscles judged for annihilation."}/>
+       <div className='bg-slate-950 p-3 border border-solid border-blue-400 rounded-lg'>
+         <button className='relative flex items-center justify-center'>
+          <p>Select muscle groups</p>
+          <i className="fa-regular right-3 top-1/2 -translate-y-1/2 fa-circle-down"></i>
+         </button>
+         {
+          showModal && (<div>Modal</div>)
+         }
        </div>
      </SectionWrapper>
     </div>
