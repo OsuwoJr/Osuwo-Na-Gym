@@ -30,8 +30,12 @@ const Generator = () => {
        <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
        {Object.keys(WORKOUTS).map( (type, typeIndex)=>{
         return (
-          <button className='bg-slate-950 border bprder-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg' key={typeIndex}>
-            <p className='capitalize'>{type.replaceAll('_', " ")}</p>
+          <button 
+          onClick={()=>{
+            setPoison(type)
+          }}
+           className={'bg-slate-950 border  duration-200 px-4 hover:border-blue-600 py-3 rounded-lg ' + (type === poison ? ' border-blue-600' : ' border-blue-400')} key={typeIndex}>
+            <p className='capitalize'>{type.replaceAll('_', '')}</p>
           </button>
         )
        } )}
@@ -46,7 +50,7 @@ const Generator = () => {
           showModal && (<div>Modal</div>)
          }
        </div>
-       <Header index={'01'} title={'Pick your poison'} description={"Select the workout you wish to endure"}/>
+       <Header index={'03'} title={'Be Bazenga'} description={"Select your ultimutaa bwanaa"}/>
        <div className='grid grid-cols-3 gap-4'>
          {Object.keys(SCHEMES).map( (scheme, schemeIndex)=>{
           return (
