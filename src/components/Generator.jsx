@@ -18,7 +18,7 @@ const Generator = () => {
   const[showModal, setShowModal] = useState(false)
   const[poison,setPoison] = useState('individual')
   const[muscles,setMuscles] = useState([])
-  const [goals,setGoals] = useState('strength_power')
+  const [goal,setGoal] = useState('strength_power')
   //let showModal= false
   function toggleModal(){
     setShowModal(!showModal)
@@ -44,19 +44,32 @@ const Generator = () => {
        <div className='bg-slate-950  border border-solid border-blue-400 rounded-lg flex flex-col'>
          <button onClick={toggleModal} className='relative p-3 flex items-center justify-center'>
           <p>Select muscle groups</p>
+
           <i className="fa-regular right-3 top-1/2 -translate-y-1/2 fa-circle-down"></i>
          </button>
          {
-          showModal && (<div>Modal</div>)
+          showModal && (<div className='flex flex-col p-3'>
+            {(poison==='individual'? WORKOUTS[poison] : Object.keys(WORKOUTS[poison])).map((muscleGroup, muscleGroupIndex)=>{
+              return (
+                <button key={muscleGroupIndex} className='hover:text-blue-400 duration-200'>
+                  <p className='uppercase'>{muscleGroup}</p>
+                </button>
+              )
+            })}
+            </div>)
          }
        </div>
        <Header index={'03'} title={'Be Bazenga'} description={"Select your ultimutaa bwanaa"}/>
        <div className='grid grid-cols-3 gap-4'>
          {Object.keys(SCHEMES).map( (scheme, schemeIndex)=>{
           return (
-            <button className='bg-slate-950 border bprder-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg' key={schemeIndex}>
-              <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
-            </button>
+            <button 
+          onClick={()=>{
+            setGoal(scheme)
+          }}
+           className={'bg-slate-950 border  duration-200 px-4 hover:border-blue-600 py-3 rounded-lg ' + (scheme === goal ? ' border-blue-600' : ' border-blue-400')} key={schemeIndex}>
+            <p className='capitalize'>{scheme.replaceAll('_', '')}</p>
+          </button>
           )
          } )}
        </div>
