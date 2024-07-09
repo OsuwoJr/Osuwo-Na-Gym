@@ -23,6 +23,20 @@ const Generator = () => {
   function toggleModal(){
     setShowModal(!showModal)
   }
+
+  function updateMuscles(muscleGroup){
+    if (muscles.length > 2) {
+      return 
+    }
+    if (poison !== 'individual'){
+      setMuscles([muscleGroup])
+      return
+    }
+    if(muscles.includes(muscleGroup)){
+      setMuscles(muscles.filter(val => i== muscleGroup))
+      return
+    }
+  }
   return (
     <div className='min-h-screen'>
      <SectionWrapper header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
@@ -51,7 +65,10 @@ const Generator = () => {
           showModal && (<div className='flex flex-col p-3'>
             {(poison==='individual'? WORKOUTS[poison] : Object.keys(WORKOUTS[poison])).map((muscleGroup, muscleGroupIndex)=>{
               return (
-                <button key={muscleGroupIndex} className='hover:text-blue-400 duration-200'>
+                <button
+                onClick={} 
+                key={muscleGroupIndex} className='hover:text-blue-400 duration-200'
+                >
                   <p className='uppercase'>{muscleGroup}</p>
                 </button>
               )
