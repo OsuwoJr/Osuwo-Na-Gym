@@ -33,7 +33,7 @@ export default function App() {
       setGoal={setGoal}
       updateWorkout={updateWorkout}
     />
-    {workout && (<Workout workout={workout}/>)}
+    {workout && (<Workout workout={workout} />)}
       
     </main>
   )
