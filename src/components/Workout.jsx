@@ -1,10 +1,10 @@
 import React from 'react'
+import SectionWrapper from './SectionWrapper'
 
-const Workout = () => {
+const Workout = (props) => {
+  const {Workout} = props
   return (
-    <div className='bg-slate-500'>
-      Workout
-    </div>
+    <SectionWrapper header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}></SectionWrapper>
   )
 }
 
