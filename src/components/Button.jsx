@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Button = (props) => {
-    const {text} = props
+    const {text, func} = props
   return (
-    <button className='px-8 mx-auto py-4 rounded-md border-[2px] bg-slate-950 border-blue-50 border-solid blueShadow duration-200'>
+    <button onClick={func} className='px-8 mx-auto py-4 rounded-md border-[2px] bg-slate-950 border-blue-50 border-solid blueShadow duration-200'>
     <p>{text}</p>
    </button>
   )

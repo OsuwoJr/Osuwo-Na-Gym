@@ -30,6 +30,7 @@ export default function App() {
       setMuscles={setMuscles}
       goal={goal}
       setGoal={setGoal}
+      updateWorkout={updateWorkout}
     />
     {workout && (<Workout workout={workout}/>)}
       

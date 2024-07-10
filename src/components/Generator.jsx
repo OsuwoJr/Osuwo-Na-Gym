@@ -16,7 +16,7 @@ function Header (props){
 }
 
 const Generator = (props) => {
-  const {muscles, setMuscles, poison, setPoison, goal, setGoal} = props
+  const {muscles, setMuscles, poison, setPoison, goal, setGoal, updateWorkout} = props
   const[showModal, setShowModal] = useState(false)
   
   //let showModal= false
@@ -91,7 +91,7 @@ const Generator = (props) => {
          }
        </div>
        <Header index={'03'} title={'Be Bazenga'} description={"Select your ultimutaa bwanaa"}/>
-       <div className='grid grid-cols-3 gap-4'>
+       <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
        {Object.keys(SCHEMES).map((scheme, schemeIndex) => {
                     return (
                         <button onClick={() => {
@@ -102,7 +102,7 @@ const Generator = (props) => {
                     )
                 })}
        </div>
-       <Button text={"Formulate"}></Button>
+       <Button func={updateWorkout} text={"Formulate"}></Button>
      </SectionWrapper>
     </div>
   )
