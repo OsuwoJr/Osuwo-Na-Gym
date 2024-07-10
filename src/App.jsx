@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Hero from './components/Hero'
 import Generator from './components/Generator'
 import Workout from './components/Workout'
-import { generateworkout } from './utils/functions'
+import { generateWorkout } from './utils/functions'
 export default function App() {
   const [workout, setWorkout] = useState(null)
   const[poison,setPoison] = useState('individual')
@@ -15,6 +15,7 @@ export default function App() {
       return
     }
     let newWorkout = generateWorkout({ poison, muscles, goal })
+    console.log(newWorkout)
     setWorkout(newWorkout)
 
     window.location.href = '#workout'
