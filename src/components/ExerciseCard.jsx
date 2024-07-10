@@ -1,9 +1,10 @@
 import React from 'react'
 
-const ExerciseCard = () => {
+const ExerciseCard = (props) => {
+    const {exercise} = props
   return (
     <div>
-      
+      ExerciseCard
     </div>
   )
 }

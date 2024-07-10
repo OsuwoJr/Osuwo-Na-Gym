@@ -1,11 +1,18 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
+import ExerciseCard from './ExerciseCard'
 
-const Workout = (props) => {
-  const {Workout} = props
-  return (
-    <SectionWrapper header={"welcome to/karibu kwa"} title={['The', 'Hatari', 'zone']}></SectionWrapper>
-  )
+export default function Workout(props) {
+    const { workout } = props
+    return (
+        <SectionWrapper id={'workout'} header={"welcome to"} title={['The', 'DANGER', 'zone']}>
+            <div className='flex flex-col gap-4'>
+                {workout.map((exercise, i) => {
+                    return (
+                        <ExerciseCard i={i} exercise={exercise} key={i} />
+                    )
+                })}
+            </div>
+        </SectionWrapper>
+    )
 }
-
-export default Workout
