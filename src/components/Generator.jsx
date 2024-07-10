@@ -24,22 +24,30 @@ const Generator = () => {
     setShowModal(!showModal)
   }
 
-  function updateMuscles(muscleGroup){
-    if(muscles.includes(muscleGroup)){
-      setMuscles(muscles.filter(val => i== muscleGroup))
+  function updateMuscles(muscleGroup) {
+    if (muscles.includes(muscleGroup)) {
+      setMuscles(muscles.filter(val => val !== muscleGroup))
       return
-    }
-    if (muscles.length > 3) {
-      return 
-    }
-    if (poison !== 'individual'){
+  }
+
+  if (muscles.length > 2) {
+      return
+  }
+
+  if (poison !== 'individual') {
       setMuscles([muscleGroup])
       setShowModal(false)
       return
-    }
-    
-    setMuscles([...muscles, muscleGroup])
   }
+
+  setMuscles([...muscles, muscleGroup])
+  if (muscles.length === 2) {
+      setShowModal(false)
+  }
+
+}
+
+
   return (
     <div className='min-h-screen'>
      <SectionWrapper header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
@@ -83,17 +91,15 @@ const Generator = () => {
        </div>
        <Header index={'03'} title={'Be Bazenga'} description={"Select your ultimutaa bwanaa"}/>
        <div className='grid grid-cols-3 gap-4'>
-         {Object.keys(SCHEMES).map( (scheme, schemeIndex)=>{
-          return (
-            <button 
-          onClick={()=>{
-            setGoal(scheme)
-          }}
-           className={'bg-slate-950 border  duration-200 px-4 hover:border-blue-600 py-3 rounded-lg ' + (scheme === goal ? ' border-blue-600' : ' border-blue-400')} key={schemeIndex}>
-            <p className='capitalize'>{scheme.replaceAll('_', '')}</p>
-          </button>
-          )
-         } )}
+       {Object.keys(SCHEMES).map((scheme, schemeIndex) => {
+                    return (
+                        <button onClick={() => {
+                            setGoal(scheme)
+                        }} className={'bg-slate-950 border  duration-200 hover:border-blue-600 py-3 rounded-lg px-4 ' + (scheme === goal ? ' border-blue-600' : ' border-blue-400')} key={schemeIndex}>
+                            <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
+                        </button>
+                    )
+                })}
        </div>
      </SectionWrapper>
     </div>
