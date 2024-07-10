@@ -4,7 +4,7 @@ import SectionWrapper from './SectionWrapper'
 const Workout = (props) => {
   const {Workout} = props
   return (
-    <SectionWrapper header={"welcometo/karibu kwa"} title={['Ni', 'Danger', 'zone']}></SectionWrapper>
+    <SectionWrapper header={"welcome to/karibu kwa"} title={['The', 'Hatari', 'zone']}></SectionWrapper>
   )
 }
 
