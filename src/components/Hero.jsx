@@ -11,7 +11,9 @@ const Hero = () => {
       
       <p className='text-sm md:text-base font-light'>I hereby aceept with  whole my <span className='text-blue-400 font-medium uppercase'>heart,chest,stomach,liver,brain,soul,lungs</span> and any other preciously valued organ in my body.<span className='text-blue-400 font-medium'>To stay fit and be lean like never before.</span>Not to partake any stupidly processed diet and <span className='text-blue-400 font-medium'>to strictly follow</span> my gym lessons every day! </p>
 
-      <Button text={"Accept&Suffer"}></Button>
+      <Button func={() =>{
+        window.location.href = '#generate'
+      }} text={"Accept&Suffer"}></Button>
     </div>
   )
 }
