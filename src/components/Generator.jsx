@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import SectionWrapper from './SectionWrapper'
 import { SCHEMES, WORKOUTS } from '../utils/swoldier'
+import Button from './Button'
 function Header (props){
     const {index, title, description} = props
     return (
@@ -102,6 +103,7 @@ const Generator = (props) => {
                     )
                 })}
        </div>
+       <Button text={"Formulate"}></Button>
      </SectionWrapper>
     </div>
   )
